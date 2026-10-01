@@ -1,0 +1,17 @@
+{
+  "short_name": "Sổ tay Chính trị",
+  "name": "Sổ tay Chính trị Điện tử - QĐND Việt Nam",
+  "description": "Ứng dụng chuyển đổi số giáo dục chính trị, tra cứu văn kiện và thi trắc nghiệm trực tuyến",
+  "start_url": "/",
+  "background_color": "#991b1b",
+  "theme_color": "#991b1b",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

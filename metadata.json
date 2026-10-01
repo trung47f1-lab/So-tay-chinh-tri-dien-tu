@@ -1,0 +1,6 @@
+{
+  "name": "Sổ tay Chính trị Điện tử",
+  "description": "Ứng dụng công nghệ số phục vụ học tập, tra cứu và kiểm tra nhận thức chính trị ở đơn vị cơ sở",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,1024 @@
+import { 
+  ChuyenDe, 
+  TaiLieu, 
+  CauHoi, 
+  DeThi, 
+  NoiDungHangNgay, 
+  MocTruyenThong, 
+  NguoiDung, 
+  QRCodeItem, 
+  NhatKyHeThong, 
+  BaiHatTruyenThong,
+  VideoTuLieu,
+  KetQua,
+  InfographicItem
+} from '../types';
+
+export const CHUYEN_DE_INITIAL: ChuyenDe[] = [
+  {
+    id: 'cd-1',
+    ten: 'Tư tưởng, đạo đức, phong cách Hồ Chí Minh',
+    mo_ta: 'Học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh về ý chí tự lực tự cường và khát vọng phát triển đất nước phồn vinh.',
+    bieu_tuong: 'BookOpen',
+    so_tai_lieu: 8,
+    so_cau_hoi: 12,
+    thu_tu: 1,
+  },
+  {
+    id: 'cd-2',
+    ten: '10 Lời thề danh dự & 12 Điều kỷ luật Quân nhân',
+    mo_ta: 'Chuẩn mực phẩm chất, danh dự và kỷ luật sắt của Bộ đội Cụ Hồ trong sinh hoạt, huấn luyện, chiến đấu và tiếp xúc nhân dân.',
+    bieu_tuong: 'ShieldCheck',
+    so_tai_lieu: 6,
+    so_cau_hoi: 10,
+    thu_tu: 2,
+  },
+  {
+    id: 'cd-3',
+    ten: 'Pháp luật Nhà nước & Điều lệnh Quân đội',
+    mo_ta: 'Luật Nghĩa vụ quân sự, Luật Quốc phòng, Điều lệnh quản lý bộ đội và các quy định bảo đảm an toàn, chấp hành pháp luật.',
+    bieu_tuong: 'Scale',
+    so_tai_lieu: 7,
+    so_cau_hoi: 11,
+    thu_tu: 3,
+  },
+  {
+    id: 'cd-4',
+    ten: 'Nghị quyết của Đảng & Tình hình nhiệm vụ',
+    mo_ta: 'Quán triệt Nghị quyết Đại hội Đảng toàn quốc, Nghị quyết Quân ủy Trung ương và nhiệm vụ sẵn sàng chiến đấu tại đơn vị cơ sở.',
+    bieu_tuong: 'Award',
+    so_tai_lieu: 5,
+    so_cau_hoi: 8,
+    thu_tu: 4,
+  },
+  {
+    id: 'cd-5',
+    ten: 'Lịch sử & Truyền thống hào hùng của Đơn vị',
+    mo_ta: 'Mốc son lịch sử, gương chiến đấu anh dũng, các chiến công tiêu biểu và truyền thống vẻ vang Trung đoàn 1 - Đoàn Ba Gia anh hùng.',
+    bieu_tuong: 'Flame',
+    so_tai_lieu: 6,
+    so_cau_hoi: 9,
+    thu_tu: 5,
+  },
+  {
+    id: 'cd-6',
+    ten: 'Phòng, chống âm mưu "Diễn biến hòa bình"',
+    mo_ta: 'Nhận diện các thủ đoạn chống phá tư tưởng trên không gian mạng, giữ vững trận địa chính trị, kiên định mục tiêu lý tưởng.',
+    bieu_tuong: 'Radio',
+    so_tai_lieu: 4,
+    so_cau_hoi: 7,
+    thu_tu: 6,
+  },
+];
+
+export const TAI_LIEU_INITIAL: TaiLieu[] = [
+  {
+    id: 'tl-1',
+    tieu_de: '10 Lời thề danh dự của quân nhân Quân đội nhân dân Việt Nam',
+    loai: 'van_kien',
+    chuyen_de_id: 'cd-2',
+    tom_tat: 'Toàn văn 10 Lời thề danh dự mà mỗi quân nhân tuyên thệ dưới Quân kỳ Quyết thắng khi bước vào hàng ngũ Quân đội nhân dân Việt Nam.',
+    tac_gia: 'Bộ Quốc phòng',
+    ngay_dang: '2026-01-15',
+    so_hieu: 'VB-QP/QDND-10LT',
+    loai_dinh_kem: 'audio',
+    media_url: 'speech://10-loi-the',
+    thoi_luong_phut: 7,
+    so_luot_xem: 1248,
+    noi_dung: `1. Hy sinh tất cả vì Tổ quốc Việt Nam; dưới sự lãnh đạo của Đảng Cộng sản Việt Nam, phấn đấu thực hiện một nước Việt Nam hòa bình, độc lập và xã hội chủ nghĩa, góp phần tích cực vào cuộc đấu tranh của nhân dân thế giới vì hòa bình, độc lập dân tộc, dân chủ và chủ nghĩa xã hội. Xin thề!
+
+2. Tuyệt đối phục tùng mệnh lệnh cấp trên; khi nhận bất cứ nhiệm vụ gì đều tận tâm, tận lực thi hành nhanh chóng và chính xác. Xin thề!
+
+3. Không ngừng nâng cao tinh thần yêu nước xã hội chủ nghĩa, tinh thần quốc tế vô sản, rèn luyện ý chí chiến đấu kiên quyết và bền bỉ, thắng không kiêu, bại không nản, dù gian lao khổ hạnh cũng không sờn lòng, vào sống ra chết cũng không nản chí "Nhiệm vụ nào cũng hoàn thành, khó khăn nào cũng vượt qua, kẻ thù nào cũng đánh thắng". Xin thề!
+
+4. Ra sức học tập nâng cao trình độ chính trị, quân sự, văn hóa, khoa học kỹ thuật, nghiệp vụ, triệt để chấp hành điều lệnh, điều lệ, rèn luyện tính tổ chức, tính kỷ luật và tác phong chính quy, xây dựng quân đội ngày càng hùng mạnh, luôn luôn sẵn sàng chiến đấu. Xin thề!
+
+5. Nêu cao tinh thần làm chủ tập thể xã hội chủ nghĩa, làm tròn nhiệm vụ chiến đấu bảo vệ Tổ quốc, xây dựng chủ nghĩa xã hội và làm tròn nghĩa vụ quốc tế. Gương mẫu chấp hành và vận động nhân dân thực hiện mọi đường lối, chủ trương của Đảng, chính sách, pháp luật của Nhà nước. Xin thề!
+
+6. Luôn luôn cảnh giác, tuyệt đối giữ bí mật quân sự và bí mật quốc gia. Nếu bị quân địch bắt, dù phải chịu cực hình tàn khốc thế nào cũng cương quyết một lòng trung thành với sự nghiệp cách mạng, không bao giờ phản bội xưng khai. Xin thề!
+
+7. Đoàn kết chặt chẽ với nhau như ruột thịt trên tình thương yêu giai cấp; hết lòng giúp đỡ nhau lúc thường cũng như lúc chiến đấu; từng giọt máu, hạt gạo cắn đôi, đồng cam cộng khổ, chia ngọt sẻ bùi. Xin thề!
+
+8. Ra sức giữ gìn vũ khí trang bị, tài sản của quân đội, bảo vệ của công; không tham ô, lãng phí, không xâm phạm tài sản của nhân dân và của quân đội; kiên quyết đấu tranh chống mọi hành vi tiêu cực. Xin thề!
+
+9. Khi tiếp xúc với nhân dân làm đúng 12 điều kỷ luật: Không lấy của dân một cái kim, sợi chỉ; kính già, yêu trẻ, tôn trọng phụ nữ; đi dân nhớ, ở dân thương. Xin thề!
+
+10. Giữ vững phẩm chất tốt đẹp và truyền thống vẻ vang của quân đội nhân dân, xứng đáng với danh hiệu cao quý "Bộ đội Cụ Hồ". Suốt đời trung thành với Đảng, với Tổ quốc và nhân dân. Xin thề!`
+  },
+  {
+    id: 'tl-2',
+    tieu_de: '12 Điều kỷ luật khi tiếp xúc với nhân dân của Quân đội nhân dân Việt Nam',
+    loai: 'phap_luat',
+    chuyen_de_id: 'cd-2',
+    tom_tat: 'Quy tắc ứng xử mẫu mực trong quan hệ quân - dân cá nước: Kính trọng dân, Giúp đỡ dân, Bảo vệ dân, Học tập dân.',
+    tac_gia: 'Tổng cục Chính trị QĐND Việt Nam',
+    ngay_dang: '2026-02-01',
+    so_hieu: 'CT-TCCT/12DKL',
+    loai_dinh_kem: 'none',
+    thoi_luong_phut: 5,
+    so_luot_xem: 980,
+    noi_dung: `Mười hai điều kỷ luật khi tiếp xúc với nhân dân được chia thành ba nhóm lớn:
+
+I. NHÓM KHÔNG LÀM:
+1. Không lấy của dân một cái kim, sợi chỉ, một tấc đất, ngọn rau.
+2. Không bắt nhân dân làm bất cứ việc gì tổn hại đến quyền lợi và danh dự của dân.
+3. Không làm phiền nhiễu, hách dịch, cửa quyền, gây trở ngại cho hoạt động của dân.
+4. Không xâm phạm phong tục tập quán, tín ngưỡng, tự do tôn giáo của nhân dân.
+
+II. NHÓM PHẢI LÀM:
+5. Mua bán công bằng, sòng phẳng, mượn đồ phải trả, làm hỏng phải bồi thường.
+6. Kính trọng người già, yêu mến trẻ thơ, tôn trọng phụ nữ, đoàn kết với thanh niên.
+7. Tôn trọng chính quyền địa phương, các tổ chức đoàn thể nhân dân ở nơi đóng quân.
+8. Giúp đỡ nhân dân thu hoạch mùa màng, phòng chống thiên tai, bão lũ, xóa đói giảm nghèo.
+9. Tuyên truyền vận động nhân dân chấp hành nghiêm chỉnh đường lối, chính sách của Đảng, pháp luật Nhà nước.
+
+III. PHẨM CHẤT QUÂN - DÂN:
+10. Gương mẫu đi đầu trong xây dựng nếp sống văn hóa mới ở khu dân cư.
+11. Giữ gìn bí mật của Đảng, Nhà nước và Quân đội khi ở trong dân.
+12. Đi dân nhớ, ở dân thương; mỗi hành động của quân nhân đều để lại ấn tượng tốt đẹp về hình ảnh "Bộ đội Cụ Hồ".`
+  },
+  {
+    id: 'tl-3',
+    tieu_de: 'Đẩy mạnh học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh trong Quân đội',
+    loai: 'giao_duc',
+    chuyen_de_id: 'cd-1',
+    tom_tat: 'Chuyên đề giáo dục chính trị năm 2026 về chuẩn mực "Bộ đội Cụ Hồ" trong tình hình mới theo Kết luận số 01-KL/TW.',
+    tac_gia: 'Cục Tuyên huấn - TCCT',
+    ngay_dang: '2026-02-18',
+    so_hieu: 'TL-GDCT/2026-01',
+    loai_dinh_kem: 'image',
+    media_url: '/src/assets/images/hoc_tap_chien_si_1790380061202.jpg',
+    thoi_luong_phut: 10,
+    so_luot_xem: 1532,
+    noi_dung: `Nội dung cốt lõi của việc học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh đối với cán bộ, chiến sĩ hiện nay gồm 5 đặc trưng cơ bản:
+
+1. Tuyệt đối trung thành với Đảng, với Tổ quốc và Nhân dân:
+Cán bộ, chiến sĩ luôn có bản lĩnh chính trị vững vàng, kiên định mục tiêu độc lập dân tộc gắn liền với chủ nghĩa xã hội, tin tưởng tuyệt đối vào sự lãnh đạo của Đảng và thắng lợi của sự nghiệp đổi mới.
+
+2. Tinh thần khắc phục khó khăn, sẵn sàng chiến đấu, hy sinh:
+Kế thừa truyền thống "Quyết tử để Tổ quốc quyết sinh", dù trong bất kỳ hoàn cảnh gian khổ nào cũng nêu cao ý chí quyết tâm, nỗ lực luyện tập làm chủ vũ khí trang bị hiện đại.
+
+3. Kỷ luật tự giác, nghiêm minh, tác phong chính quy:
+Mỗi quân nhân phải là một tấm gương mẫu mực về chấp hành điều lệnh, điều lệ quân đội, pháp luật Nhà nước. Tự giác khép mình vào kỷ luật, nói đi đôi với làm.
+
+4. Tình đồng chí, đồng đội gắn bó keo sơn:
+Yêu thương, đùm bọc, tôn trọng lẫn nhau; giúp đỡ đồng đội tiến bộ, xây dựng đơn vị thành một gia đình lớn ấm áp nghĩa tình.
+
+5. Mối quan hệ máu thịt với nhân dân:
+Phát huy bản chất "Từ nhân dân mà ra, vì nhân dân mà chiến đấu", luôn là điểm tựa vững chắc cho nhân dân trong thiên tai dịch bệnh, cứu hộ cứu nạn.`
+  },
+  {
+    id: 'tl-4',
+    tieu_de: 'Một số quy định mới về xử lý kỷ luật quân đội theo Thông tư 143/2023/TT-BQP',
+    loai: 'chi_thi',
+    chuyen_de_id: 'cd-3',
+    tom_tat: 'Những điểm mới cần nắm chắc về chế tài xử lý vi phạm kỷ luật quân đội: đào ngũ, vắng mặt trái phép, sử dụng rượu bia, mạng xã hội.',
+    tac_gia: 'Thanh tra Bộ Quốc phòng',
+    ngay_dang: '2026-01-20',
+    so_hieu: 'TT-143/2023/TT-BQP',
+    loai_dinh_kem: 'pdf',
+    thoi_luong_phut: 8,
+    so_luot_xem: 870,
+    noi_dung: `Thông tư 143/2023/TT-BQP quy định rõ ràng về các hình thức kỷ luật đối với các hành vi vi phạm:
+
+1. Hành vi vắng mặt trái phép và đào bỏ ngũ:
+- Vắng mặt trái phép không có lý do chính đáng dưới 24 giờ trong lúc bình thường hoặc trong lúc thực hiện nhiệm vụ khẩn cấp sẽ bị xử lý nghiêm khắc từ cảnh cáo đến giáng cấp bậc quân hàm.
+- Đào ngũ sẽ bị tước danh hiệu quân nhân và chuyển hồ sơ đề nghị truy cứu trách nhiệm hình sự theo Điều 402 Bộ luật Hình sự.
+
+2. Quy định về sử dụng rượu, bia và chất có cồn:
+- Nghiêm cấm uống rượu, bia trong giờ làm việc, giờ trực, khi điều khiển phương tiện quân sự và phương tiện giao thông.
+- Quân nhân vi phạm nồng độ cồn sẽ bị xử phạt kỷ luật và đình chỉ công tác ngay lập tức.
+
+3. Quy định về sử dụng mạng xã hội và thông tin trên Internet:
+- Tuyệt đối không đăng tải, chia sẻ thông tin mật, hình ảnh doanh trại, vũ khí khí tài, tài liệu nội bộ quân sự lên mạng xã hội.
+- Không tham gia các hội nhóm có tư tưởng lệch lạc, không bình luận tiêu cực về đường lối chính sách.`
+  },
+  {
+    id: 'tl-5',
+    tieu_de: 'Chiến thắng Ba Gia - Mốc son lịch sử chói lọi trong kháng chiến chống Mỹ',
+    loai: 'truyen_thong',
+    chuyen_de_id: 'cd-5',
+    tom_tat: 'Trận đánh tiêu diệt Chiến đoàn 51 ngụy tháng 5/1965 tại Quảng Ngãi, khai sinh truyền thống "Đánh giỏi, diệt gọn" của Trung đoàn 1.',
+    tac_gia: 'Phòng Chính trị Trung đoàn 1',
+    ngay_dang: '2026-03-01',
+    so_hieu: 'LS-TD1/BG-1965',
+    loai_dinh_kem: 'image',
+    media_url: '/src/assets/images/truyen_thong_quan_doi_1790380045077.jpg',
+    thoi_luong_phut: 12,
+    so_luot_xem: 2100,
+    noi_dung: `Chiến dịch Ba Gia diễn ra từ ngày 28 đến ngày 31 tháng 5 năm 1965 tại thung lũng Ba Gia (huyện Sơn Tịnh, tỉnh Quảng Ngãi).
+
+1. Bối cảnh lịch sử:
+Đầu năm 1965, chiến lược "Chiến tranh đặc biệt" của đế quốc Mỹ ở miền Nam đứng trước nguy cơ phá sản hoàn toàn. Địch tập trung quân chủ lực cùng không quân và pháo binh hòng càn quét căn cứ của ta.
+
+2. Diễn biến trận đánh:
+Trung đoàn 1 (sau này mang tên Đoàn Ba Gia) cùng các lực lượng vũ trang Quân khu 5 đã sáng tạo cách đánh "vận động tiến công kết hợp chốt chặn", dụ địch vào thế trận bày sẵn. Sau 3 ngày đêm chiến đấu ngoan cường, ta đã tiêu diệt hoàn toàn Chiến đoàn 51 của quân đội Sài Gòn, bắt sống hàng trăm tên, thu toàn bộ vũ khí trang bị.
+
+3. Ý nghĩa lịch sử:
+Chiến thắng Ba Gia đánh dấu bước trưởng thành vượt bậc về trình độ tác chiến của quân chủ lực ta, góp phần đánh bại hoàn toàn chiến lược "Chiến tranh đặc biệt" của Mỹ. Truyền thống "Đánh giỏi, diệt gọn, dũng mãnh, kiên cường" của Trung đoàn 1 bắt nguồn từ mốc son vẻ vang này.`
+  },
+  {
+    id: 'tl-6',
+    tieu_de: 'Nghị quyết Trung ương 8 Khóa XIII về Chiến lược bảo vệ Tổ quốc trong tình hình mới',
+    loai: 'van_kien',
+    chuyen_de_id: 'cd-4',
+    tom_tat: 'Những quan điểm chỉ đạo cốt lõi: Bảo vệ Tổ quốc từ sớm, từ xa; giữ nước từ khi nước chưa nguy; xây dựng LLVT nhân dân cách mạng, chính quy, tinh nhuệ, hiện đại.',
+    tac_gia: 'Ban Chấp hành Trung ương',
+    ngay_dang: '2026-02-10',
+    so_hieu: 'NQ-44/NQ-TW',
+    loai_dinh_kem: 'none',
+    thoi_luong_phut: 9,
+    so_luot_xem: 1120,
+    noi_dung: `Nghị quyết số 44-NQ/TW ngày 24/11/2023 của Hội nghị Trung ương 8 khóa XIII xác định các mục tiêu và nhiệm vụ chiến lược:
+
+1. Mục tiêu tối thượng:
+Bảo đảm cao nhất lợi ích quốc gia - dân tộc trên cơ sở các nguyên tắc cơ bản của Hiến chương Liên Hợp Quốc và luật pháp quốc tế; bảo vệ vững chắc độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ của Tổ quốc; bảo vệ Đảng, Nhà nước, Nhân dân và chế độ xã hội chủ nghĩa.
+
+2. Phương châm chỉ đạo:
+Kiên định mục tiêu độc lập dân tộc và chủ nghĩa xã hội; giữ vững môi trường hòa bình, ổn định để phát triển đất nước; chủ động ngăn ngừa các nguy cơ chiến tranh, xung đột từ sớm, từ xa; kết hợp chặt chẽ giữa quốc phòng, an ninh với phát triển kinh tế - xã hội.
+
+3. Xây dựng Quân đội nhân dân Việt Nam:
+Đến năm 2025 cơ bản xây dựng Quân đội tinh, gọn, mạnh; tạo tiền đề vững chắc, phấn đấu năm 2030 xây dựng Quân đội nhân dân cách mạng, chính quy, tinh nhuệ, hiện đại.`
+  }
+];
+
+export const CAU_HOI_INITIAL: CauHoi[] = [
+  {
+    id: 'ch-1',
+    chuyen_de_id: 'cd-2',
+    tai_lieu_id: 'tl-1',
+    noi_dung: 'Lời thề thứ mấy trong 10 Lời thề danh dự của quân nhân nhắc đến câu nói bất hủ: "Nhiệm vụ nào cũng hoàn thành, khó khăn nào cũng vượt qua, kẻ thù nào cũng đánh thắng"?',
+    cac_dap_an: [
+      'Lời thề thứ 1',
+      'Lời thề thứ 2',
+      'Lời thề thứ 3',
+      'Lời thề thứ 5'
+    ],
+    dap_an_dung: 2,
+    giai_thich: 'Lời thề thứ 3 khẳng định tinh thần yêu nước XHCN, rèn luyện ý chí bền bỉ: "Nhiệm vụ nào cũng hoàn thành, khó khăn nào cũng vượt qua, kẻ thù nào cũng đánh thắng".',
+    muc_do: 'co_ban'
+  },
+  {
+    id: 'ch-2',
+    chuyen_de_id: 'cd-2',
+    tai_lieu_id: 'tl-1',
+    noi_dung: 'Nội dung cốt lõi của Lời thề thứ 2 trong 10 Lời thề danh dự là gì?',
+    cac_dap_an: [
+      'Tuyệt đối phục tùng mệnh lệnh cấp trên, khi nhận bất cứ nhiệm vụ gì đều tận tâm, tận lực thi hành nhanh chóng và chính xác',
+      'Tuyệt đối giữ bí mật quân sự và bí mật quốc gia',
+      'Đoàn kết chặt chẽ với nhau như ruột thịt',
+      'Ra sức giữ gìn vũ khí trang bị kỹ thuật'
+    ],
+    dap_an_dung: 0,
+    giai_thich: 'Lời thề số 2 nêu rõ tính phục tùng kỷ luật quân sự nghiêm ngặt: Tuyệt đối phục tùng mệnh lệnh của cấp chỉ huy.',
+    muc_do: 'co_ban'
+  },
+  {
+    id: 'ch-3',
+    chuyen_de_id: 'cd-2',
+    tai_lieu_id: 'tl-2',
+    noi_dung: 'Khẩu hiệu truyền thống nào thể hiện sâu sắc mối quan hệ quân nhân với nhân dân trong 12 Điều kỷ luật?',
+    cac_dap_an: [
+      'Ăn cùng mâm, ngủ cùng chiếu',
+      'Đi dân nhớ, ở dân thương',
+      'Đoàn kết, kỷ luật, chiến thắng',
+      'Trung kiên, dũng cảm, mưu trí'
+    ],
+    dap_an_dung: 1,
+    giai_thich: '"Đi dân nhớ, ở dân thương" là phương châm ứng xử mẫu mực khắc sâu tình cảm gắn bó máu thịt quân với dân.',
+    muc_do: 'co_ban'
+  },
+  {
+    id: 'ch-4',
+    chuyen_de_id: 'cd-1',
+    tai_lieu_id: 'tl-3',
+    noi_dung: 'Chủ tịch Hồ Chí Minh dạy: "Quân sự mà không có chính trị như..."?',
+    cac_dap_an: [
+      'Như cây không có gốc, nước không có nguồn',
+      'Như người không có mắt, đi mò trong đêm tối',
+      'Như thuyền không lái, như súng không đạn',
+      'Như xe không có người lái'
+    ],
+    dap_an_dung: 1,
+    giai_thich: 'Bác Hồ dạy: "Quân sự mà không có chính trị như người không có mắt, đi mò trong đêm tối". Chính trị là linh hồn của quân đội.',
+    muc_do: 'nang_cao'
+  },
+  {
+    id: 'ch-5',
+    chuyen_de_id: 'cd-3',
+    tai_lieu_id: 'tl-4',
+    noi_dung: 'Theo quy định hiện hành trong Quân đội nhân dân Việt Nam, việc quân nhân sử dụng rượu, bia bị nghiêm cấm trong trường hợp nào?',
+    cac_dap_an: [
+      'Chỉ cấm khi đang trực ban chỉ huy',
+      'Chỉ cấm trong thời gian diễn tập bắn đạn thật',
+      'Trong giờ làm việc, giờ trực, khi làm nhiệm vụ và khi điều khiển phương tiện giao thông',
+      'Không cấm nếu chỉ uống vào buổi tối'
+    ],
+    dap_an_dung: 2,
+    giai_thich: 'Quy định điều lệnh và pháp luật quân sự cấm triệt để việc uống rượu bia trong giờ làm việc, giờ trực và khi lái xe nhằm đảm bảo kỷ luật và an toàn.',
+    muc_do: 'co_ban'
+  },
+  {
+    id: 'ch-6',
+    chuyen_de_id: 'cd-5',
+    tai_lieu_id: 'tl-5',
+    noi_dung: 'Chiến thắng Ba Gia lịch sử diễn ra vào thời gian nào?',
+    cac_dap_an: [
+      'Tháng 5 năm 1954',
+      'Tháng 5 năm 1965',
+      'Tháng 12 năm 1972',
+      'Tháng 4 năm 1975'
+    ],
+    dap_an_dung: 1,
+    giai_thich: 'Chiến thắng Ba Gia diễn ra cuối tháng 5 năm 1965 tại Quảng Ngãi, đánh bại chiến đoàn 51 của ngụy quân.',
+    muc_do: 'nang_cao'
+  },
+  {
+    id: 'ch-7',
+    chuyen_de_id: 'cd-4',
+    tai_lieu_id: 'tl-6',
+    noi_dung: 'Nghị quyết Trung ương 8 khóa XIII xác định mục tiêu đến năm 2025 xây dựng Quân đội theo hướng nào?',
+    cac_dap_an: [
+      'Cơ bản xây dựng Quân đội tinh, gọn, mạnh',
+      'Trực tiếp tiến thẳng lên hiện đại hóa toàn diện',
+      'Tập trung mở rộng quân số dự bị động viên',
+      'Độc lập hoàn toàn về nghiên cứu chế tạo vũ khí hạt nhân'
+    ],
+    dap_an_dung: 0,
+    giai_thich: 'Mục tiêu chiến lược: Đến năm 2025 cơ bản xây dựng Quân đội tinh, gọn, mạnh; tạo tiền đề vững chắc, đến năm 2030 xây dựng QĐND cách mạng, chính quy, tinh nhuệ, hiện đại.',
+    muc_do: 'co_ban'
+  },
+  {
+    id: 'ch-8',
+    chuyen_de_id: 'cd-1',
+    tai_lieu_id: 'tl-3',
+    noi_dung: 'Danh hiệu cao quý nào được nhân dân tin yêu dành tặng cho cán bộ, chiến sĩ Quân đội nhân dân Việt Nam?',
+    cac_dap_an: [
+      'Chiến sĩ cảm tử',
+      'Bộ đội Cụ Hồ',
+      'Vệ quốc quân anh dũng',
+      'Anh hùng áo xanh'
+    ],
+    dap_an_dung: 1,
+    giai_thich: '"Bộ đội Cụ Hồ" là biểu tượng sáng ngời về phẩm chất của quân đội cách mạng gắn bó máu thịt với nhân dân.',
+    muc_do: 'co_ban'
+  },
+  {
+    id: 'ch-9',
+    chuyen_de_id: 'cd-6',
+    noi_dung: 'Thủ đoạn nguy hiểm nhất của chiến lược "Diễn biến hòa bình" trên lĩnh vực tư tưởng văn hóa là gì?',
+    cac_dap_an: [
+      'Tiến hành bao vây cấm vận kinh tế',
+      'Phi chính trị hóa quân đội, tách rời sự lãnh đạo của Đảng đối với Quân đội',
+      'Khiêu khích xung đột biên giới cục bộ',
+      'Đánh cắp bí mật thương mại công nghệ'
+    ],
+    dap_an_dung: 1,
+    giai_thich: 'Âm mưu phi chính trị hóa quân đội nhằm vô hiệu hóa công cụ bạo lực sắc bén bảo vệ Đảng, Nhà nước và nhân dân.',
+    muc_do: 'nang_cao'
+  },
+  {
+    id: 'ch-10',
+    chuyen_de_id: 'cd-3',
+    noi_dung: 'Khi quân nhân phát hiện đồng đội có biểu hiện vi phạm kỷ luật hoặc tư tưởng tiêu cực, thái độ đúng đắn là gì?',
+    cac_dap_an: [
+      'Làm ngơ coi như không biết',
+      'Bao che để giữ thành tích chung của phân đội',
+      'Kịp thời gặp gỡ động viên, khuyên can và báo cáo với cán bộ chỉ huy',
+      'Kể cho người ngoài đơn vị nghe'
+    ],
+    dap_an_dung: 2,
+    giai_thich: 'Tình đồng chí đồng đội đòi hỏi sự chân thành, kịp thời nhắc nhở ngăn chặn vi phạm và báo cáo chỉ huy để giúp đỡ.',
+    muc_do: 'co_ban'
+  }
+];
+
+export const DE_THI_INITIAL: DeThi[] = [
+  {
+    id: 'dt-1',
+    ma_de: 'MĐ-01',
+    tieu_de: 'Kiểm tra nhận thức chính trị định kỳ Quý I/2026',
+    chuyen_de_id: 'cd-2',
+    so_cau: 8,
+    thoi_gian_phut: 15,
+    doi_tuong: 'Hạ sĩ quan - Binh sĩ',
+    cau_hoi_ids: ['ch-1', 'ch-2', 'ch-3', 'ch-5', 'ch-6', 'ch-7', 'ch-8', 'ch-10'],
+    mo_ta: 'Đề kiểm tra trọng tâm về 10 Lời thề, 12 Điều kỷ luật và ý thức chấp hành pháp luật quân sự dành cho chiến sĩ.'
+  },
+  {
+    id: 'dt-2',
+    ma_de: 'MĐ-02',
+    tieu_de: 'Kiểm tra Chuyên đề: Học tập và làm theo tư tưởng Hồ Chí Minh',
+    chuyen_de_id: 'cd-1',
+    so_cau: 6,
+    thoi_gian_phut: 10,
+    doi_tuong: 'Toàn thể cán bộ, chiến sĩ',
+    cau_hoi_ids: ['ch-1', 'ch-3', 'ch-4', 'ch-7', 'ch-8', 'ch-9'],
+    mo_ta: 'Bộ câu hỏi đánh giá nhận thức về tư tưởng chính trị, đạo đức cách mạng và truyền thống Bộ đội Cụ Hồ.'
+  },
+  {
+    id: 'dt-3',
+    ma_de: 'MĐ-03',
+    tieu_de: 'Đánh giá nhận thức Nghị quyết & Phòng chống "Diễn biến hòa bình"',
+    chuyen_de_id: 'cd-4',
+    so_cau: 6,
+    thoi_gian_phut: 12,
+    doi_tuong: 'Đoàn viên thanh niên, Chiến sĩ năm thứ hai',
+    cau_hoi_ids: ['ch-2', 'ch-4', 'ch-6', 'ch-7', 'ch-9', 'ch-10'],
+    mo_ta: 'Nâng cao bản lĩnh chính trị, nhận diện thủ đoạn chống phá trên không gian mạng và quyết tâm bảo vệ nền tảng tư tưởng.'
+  }
+];
+
+export const NOI_DUNG_HANG_NGAY_INITIAL: NoiDungHangNgay[] = [
+  {
+    id: 'nd-today',
+    ngay: '2026-09-25',
+    tieu_de: 'Lời Bác Hồ dạy: "Đoàn kết là sức mạnh vô địch"',
+    trich_dan: 'Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công.',
+    hoan_canh: 'Trích Bài nói chuyện tại Lớp chỉnh đảng Trung ương khóa II, ngày 3 tháng 3 năm 1953.',
+    y_nghia: 'Đối với người chiến sĩ tại đơn vị cơ sở hôm nay, đoàn kết trong tiểu đội, trung đội như anh em ruột thịt là sức mạnh để vượt qua mọi gian khổ thao trường, hoàn thành xuất sắc mọi nhiệm vụ được giao.',
+    nguon: 'Hồ Chí Minh Toàn tập, NXB Chính trị quốc gia Sự thật',
+    tai_lieu_id: 'tl-1'
+  },
+  {
+    id: 'nd-sat',
+    ngay: '2026-09-26',
+    tieu_de: 'Lời Bác dạy về tự phê bình và phê bình trong Quân đội',
+    trich_dan: 'Thật thà tự phê bình và phê bình là vũ khí sắc bén nhất để sửa chữa khuyết điểm, phát huy ưu điểm.',
+    hoan_canh: 'Huấn thị tại Hội nghị Cán bộ chiến sĩ xuất sắc toàn quân năm 1952.',
+    y_nghia: 'Xây dựng tinh thần tự giác nhận rõ thiếu sót trong học tập, huấn luyện, giúp đồng đội cùng tiến bộ.',
+    nguon: 'Tạp chí Quốc phòng Toàn dân',
+    tai_lieu_id: 'tl-3'
+  },
+  {
+    id: 'nd-sun',
+    ngay: '2026-09-27',
+    tieu_de: 'Giữ gìn bí mật quân sự là giữ gìn mạng sống của quân đội',
+    trich_dan: 'Cẩn thận giữ bí mật là giữ được thế chủ động, giữ được tính mạng đồng đội và bảo vệ Tổ quốc.',
+    hoan_canh: 'Thư gửi lớp huấn luyện quân sự đặc biệt năm 1948.',
+    y_nghia: 'Nhắc nhở quân nhân nâng cao cảnh giác, không đăng tải thông tin doanh trại, tài liệu công tác lên mạng xã hội.',
+    nguon: 'Cục Tuyên huấn - TCCT',
+    tai_lieu_id: 'tl-1'
+  }
+];
+
+export const MOC_TRUYEN_THONG_INITIAL: MocTruyenThong[] = [];
+
+export const NGUOI_DUNG_INITIAL: NguoiDung[] = [
+  {
+    id: 'user-chien-si',
+    ho_ten: 'Lê Văn Toàn',
+    cap_bac: 'Binh nhất',
+    chuc_vu: 'Chiến sĩ',
+    don_vi: 'Đại đội 1, Tiểu đoàn 1',
+    vai_tro: 'chien_si',
+    tai_khoan: 'chiensi1'
+  },
+  {
+    id: 'user-can-bo',
+    ho_ten: 'Nguyễn Hữu Đạt',
+    cap_bac: 'Thượng úy',
+    chuc_vu: 'Chính trị viên Đại đội',
+    don_vi: 'Đại đội 1, Tiểu đoàn 1',
+    vai_tro: 'can_bo',
+    tai_khoan: 'canbo1',
+    dang_nhap_cuoi: '2026-09-25 14:30'
+  },
+  {
+    id: 'user-quan-tri',
+    ho_ten: 'Vũ Quốc Tuấn',
+    cap_bac: 'Thiếu tá',
+    chuc_vu: 'Trợ lý Tuyên huấn Trung đoàn',
+    don_vi: 'Ban Chính trị Trung đoàn 1',
+    vai_tro: 'quan_tri',
+    tai_khoan: 'admin',
+    dang_nhap_cuoi: '2026-09-25 16:15'
+  }
+];
+
+export const QR_CODE_INITIAL: QRCodeItem[] = [
+  {
+    id: 'qr-1',
+    tieu_de: 'QR Chuyên đề: 10 Lời thề & 12 Điều kỷ luật Quân nhân',
+    loai: 'chuyen_de',
+    muc_tieu_id: 'cd-2',
+    ma_dinh_danh: 'QR-CD-10LT12DKL',
+    duong_dan_noi_bo: '/chuyen-de/cd-2',
+    vi_tri_dan: 'Phòng Hồ Chí Minh, Phòng giao ban Trung đội, Tủ sách chiến sĩ',
+    ngay_tao: '2026-02-15',
+    luot_quet: 342
+  },
+  {
+    id: 'qr-2',
+    tieu_de: 'QR Đề thi tuần: Nhận thức chính trị Quý I/2026',
+    loai: 'de_thi',
+    muc_tieu_id: 'dt-1',
+    ma_dinh_danh: 'QR-DT-THI-QUY-1',
+    duong_dan_noi_bo: '/kiem-tra/dt-1',
+    vi_tri_dan: 'Bảng tin thi đua Đại đội, Cửa phòng nghỉ chiến sĩ',
+    ngay_tao: '2026-03-01',
+    luot_quet: 518
+  },
+  {
+    id: 'qr-3',
+    tieu_de: 'QR Tài liệu mới: Chỉ thị 143/2023/TT-BQP về xử lý kỷ luật',
+    loai: 'tai_lieu',
+    muc_tieu_id: 'tl-4',
+    ma_dinh_danh: 'QR-TL-TT143-KYLUAT',
+    duong_dan_noi_bo: '/tai-lieu/tl-4',
+    vi_tri_dan: 'Bảng công tác tuần, Phòng trực ban',
+    ngay_tao: '2026-02-20',
+    luot_quet: 189
+  },
+  {
+    id: 'qr-4',
+    tieu_de: 'QR Mốc lịch sử: Chiến thắng Ba Gia hào hùng',
+    loai: 'chuyen_de',
+    muc_tieu_id: 'cd-5',
+    ma_dinh_danh: 'QR-TT-CHIEN-THANG-BA-GIA',
+    duong_dan_noi_bo: '/truyen-thong/tl-5',
+    vi_tri_dan: 'Nhà truyền thống Trung đoàn, Bảng tin thanh niên',
+    ngay_tao: '2026-03-05',
+    luot_quet: 276
+  }
+];
+
+export const BAI_HAT_INITIAL: BaiHatTruyenThong[] = [
+  {
+    id: 'bh-1',
+    tieu_de: 'Tiến quân ca (Quốc ca Việt Nam)',
+    tac_gia: 'Nhạc sĩ Văn Cao',
+    the_loai: 'bai_hat',
+    thoi_luong: '01:45',
+    mo_ta: 'Quốc ca thiêng liêng của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.',
+    loi_bai_hat: `Đoàn quân Việt Nam đi, chung lòng cứu quốc
+Bước chân dồn vang trên đường gập ghềnh xa
+Cờ in máu chiến thắng mang hồn nước
+Súng ngoài xa chen khúc quân hành ca...`
+  },
+  {
+    id: 'bh-2',
+    tieu_de: 'Vì nhân dân quên mình',
+    tac_gia: 'Nhạc sĩ Doãn Quang Khải',
+    the_loai: 'bai_hat',
+    thoi_luong: '02:30',
+    mo_ta: 'Bài hát truyền thống của Quân đội nhân dân Việt Nam, khắc họa lý tưởng chiến đấu của Bộ đội Cụ Hồ.',
+    loi_bai_hat: `Vì nhân dân quên mình, vì nhân dân hy sinh
+Anh em ơi, vì nhân dân quên mình
+Đoàn vệ quốc quân một lòng ra đi
+Nào sợ chi gian lao nguy hiểm...`
+  },
+  {
+    id: 'bh-3',
+    tieu_de: 'Hát mãi khúc quân hành',
+    tac_gia: 'Nhạc sĩ Diệp Minh Tuyền',
+    the_loai: 'bai_hat',
+    thoi_luong: '03:15',
+    mo_ta: 'Giai điệu hào sảng, trẻ trung rèn bước chân người chiến sĩ trên mọi nẻo đường hành quân.',
+    loi_bai_hat: `Đời mình là một khúc quân hành
+Đời mình là bài ca chiến sĩ
+Ta ca vang triền miên qua tháng ngày
+Lượn bay trên núi rừng biên cương...`
+  },
+  {
+    id: 'bh-4',
+    tieu_de: 'Bản tin phát thanh 5 phút chính trị đơn vị (Số 12)',
+    tac_gia: 'Tổ Phát thanh Ban Chính trị',
+    the_loai: 'phat_thanh',
+    thoi_luong: '05:00',
+    mo_ta: 'Tuyên truyền kết quả huấn luyện bắn đạn thật tháng đầu, biểu dương gương chiến sĩ mới tiêu biểu.',
+    loi_bai_hat: `Kính thưa toàn thể cán bộ, chiến sĩ trong toàn Trung đoàn!
+Chương trình phát thanh nội bộ hôm nay xin chuyển đến các đồng chí:
+1. Tổng kết phong trào thi đua tuần cao điểm: Đại đội 1 xuất sắc dẫn đầu.
+2. Gương chiến sĩ trẻ vượt khó, đạt điểm giỏi môn Bắn súng tiểu liên AK bài 1.
+3. Nhắc nhở lễ tiết tác phong và giữ nghiêm kỷ luật giờ giấc sinh hoạt.`
+  }
+];
+
+export const KET_QUA_INITIAL: KetQua[] = [
+  {
+    id: 'kq-1',
+    nguoi_dung_id: 'user-1',
+    ho_ten: 'Trần Văn Nam',
+    cap_bac: 'Binh nhất',
+    chuc_vu: 'Chiến sĩ',
+    don_vi: 'Trung đội 1, Đại đội 1',
+    de_thi_id: 'dt-1',
+    ma_de: 'MĐ-01',
+    de_thi_tieu_de: 'Kiểm tra nhận thức chính trị định kỳ Quý I/2026',
+    diem: 10,
+    so_cau_dung: 8,
+    tong_so_cau: 8,
+    thoi_gian_lam_giay: 420,
+    ngay_thi: '2026-09-24 09:15',
+    chi_tiet: []
+  },
+  {
+    id: 'kq-2',
+    nguoi_dung_id: 'user-2',
+    ho_ten: 'Lê Văn Toàn',
+    cap_bac: 'Binh nhất',
+    chuc_vu: 'Chiến sĩ',
+    don_vi: 'Trung đội 2, Đại đội 1',
+    de_thi_id: 'dt-1',
+    ma_de: 'MĐ-01',
+    de_thi_tieu_de: 'Kiểm tra nhận thức chính trị định kỳ Quý I/2026',
+    diem: 8.75,
+    so_cau_dung: 7,
+    tong_so_cau: 8,
+    thoi_gian_lam_giay: 510,
+    ngay_thi: '2026-09-24 09:20',
+    chi_tiet: []
+  },
+  {
+    id: 'kq-3',
+    nguoi_dung_id: 'user-3',
+    ho_ten: 'Phạm Hồng Thái',
+    cap_bac: 'Binh nhì',
+    chuc_vu: 'Chiến sĩ',
+    don_vi: 'Trung đội 3, Đại đội 2',
+    de_thi_id: 'dt-1',
+    ma_de: 'MĐ-01',
+    de_thi_tieu_de: 'Kiểm tra nhận thức chính trị định kỳ Quý I/2026',
+    diem: 7.5,
+    so_cau_dung: 6,
+    tong_so_cau: 8,
+    thoi_gian_lam_giay: 620,
+    ngay_thi: '2026-09-24 09:35',
+    chi_tiet: []
+  },
+  {
+    id: 'kq-4',
+    nguoi_dung_id: 'user-4',
+    ho_ten: 'Nguyễn Văn Hùng',
+    cap_bac: 'Hạ sĩ',
+    chuc_vu: 'Tiểu đội phó',
+    don_vi: 'Trung đội 1, Đại đội 2',
+    de_thi_id: 'dt-2',
+    ma_de: 'MĐ-02',
+    de_thi_tieu_de: 'Kiểm tra Chuyên đề: Học tập và làm theo tư tưởng Hồ Chí Minh',
+    diem: 10,
+    so_cau_dung: 6,
+    tong_so_cau: 6,
+    thoi_gian_lam_giay: 310,
+    ngay_thi: '2026-09-25 10:00',
+    chi_tiet: []
+  }
+];
+
+export const NHAT_KY_INITIAL: NhatKyHeThong[] = [
+  {
+    id: 'log-1',
+    thoi_gian: '2026-09-25 14:35',
+    nguoi_thuc_hien: 'Thượng úy Nguyễn Hữu Đạt',
+    vai_tro: 'Cán bộ phụ trách',
+    hanh_dong: 'Cập nhật đề thi',
+    chi_tiet: 'Đã bổ sung 2 câu hỏi mới vào Đề thi Quý I/2026'
+  },
+  {
+    id: 'log-2',
+    thoi_gian: '2026-09-25 10:15',
+    nguoi_thuc_hien: 'Thiếu tá Vũ Quốc Tuấn',
+    vai_tro: 'Quản trị hệ thống',
+    hanh_dong: 'Sao lưu dữ liệu',
+    chi_tiet: 'Sao lưu tự động toàn bộ cơ sở dữ liệu LAN nội bộ thành công'
+  },
+  {
+    id: 'log-3',
+    thoi_gian: '2026-09-24 16:40',
+    nguoi_thuc_hien: 'Thượng úy Nguyễn Hữu Đạt',
+    vai_tro: 'Cán bộ phụ trách',
+    hanh_dong: 'Tạo mã QR chính trị',
+    chi_tiet: 'Sinh mã QR cho Chuyên đề 10 Lời thề và 12 Điều kỷ luật quân nhân'
+  }
+];
+
+export const VIDEO_INITIAL: VideoTuLieu[] = [
+  {
+    id: 'vid-1',
+    tieu_de: 'Ký ức Ba Gia — Khúc tráng ca trên đất Quảng',
+    the_loai: 'Phim tài liệu lịch sử',
+    thoi_luong: '18:30',
+    mo_ta: 'Phim tư liệu 18 phút ghi lại lời kể của các cựu chiến binh và bài học nghệ thuật quân sự vận động tiến công trong Chiến thắng Ba Gia lịch sử.',
+    video_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    thumbnail_url: '',
+    ngay_dang: '2026-05-30'
+  },
+  {
+    id: 'vid-2',
+    tieu_de: 'Tuổi trẻ Trung đoàn 1 rèn đức luyện tài',
+    the_loai: 'Phóng sự truyền hình',
+    thoi_luong: '12:15',
+    mo_ta: 'Ghi nhận phong trào tự học tập chính trị, hội thi cán bộ giảng dạy chính trị giỏi và nếp sống chính quy mẫu mực tại các đại đội bộ binh.',
+    video_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    thumbnail_url: '',
+    ngay_dang: '2026-08-15'
+  },
+  {
+    id: 'vid-3',
+    tieu_de: 'Khúc quân hành người chiến sĩ Ba Gia',
+    the_loai: 'Phim truyền thống',
+    thoi_luong: '15:45',
+    mo_ta: 'Tư liệu quý về chặng đường xây dựng, chiến đấu và trưởng thành của Trung đoàn 1 - Đoàn Ba Gia hai lần Anh hùng Lực lượng vũ trang nhân dân.',
+    video_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    thumbnail_url: '',
+    ngay_dang: '2026-09-02'
+  }
+];
+
+export const AI_OFFICER_IMAGES = [
+  {
+    id: 'img-officer-lecture',
+    duong_dan: '/src/assets/images/si_quan_qdnd_giang_bai_1790691347866.jpg',
+    ten_hinh_anh: 'Sĩ quan QĐND Việt Nam giảng bài chính trị',
+    mo_ta: 'Chân dung sĩ quan Quân đội Nhân dân Việt Nam nghiêm trang, mặc quân phục thường dùng ve áo đỏ quân hàm sao vàng, mũ kê-pi gắn sao vàng, truyền đạt bài học chính trị và lời Bác dạy.',
+    tac_gia_ai: 'AI Studio Military Art Generator',
+    dac_trung: 'Quân hàm cấp hiệu đỏ sao vàng, quân phục xanh ô-liu QĐND Việt Nam, sổ tay chính trị, cờ Tổ quốc nền đỏ sao vàng',
+    aspectRatio: '3:4',
+    phu_hop: ['Chuyên đề chính trị', 'Nghị quyết của Đảng', 'Phẩm chất Bộ đội Cụ Hồ']
+  },
+  {
+    id: 'img-officer-troops',
+    duong_dan: '/src/assets/images/si_quan_va_chien_si_1790691360387.jpg',
+    ten_hinh_anh: 'Sĩ quan cùng chiến sĩ học tập lời Bác Hồ dạy',
+    mo_ta: 'Sĩ quan chính trị hướng dẫn các chiến sĩ trẻ thảo luận lời Bác dạy trong giờ sinh hoạt chính trị dưới bóng cờ Tổ quốc tại doanh trại xanh mát.',
+    tac_gia_ai: 'AI Studio Military Art Generator',
+    dac_trung: 'Tình đồng chí đồng đội gắn bó máu thịt, mũ cối dã chiến, quân phục dã chiến xanh lá cây, không gian doanh trại Việt Nam',
+    aspectRatio: '16:9',
+    phu_hop: ['Lời Bác Hồ dạy mỗi ngày', 'Kỷ luật & Tình đồng đội', 'Sinh hoạt chính trị cơ sở']
+  },
+  {
+    id: 'img-officer-salute',
+    duong_dan: '/src/assets/images/si_quan_chao_co_1790691373461.jpg',
+    ten_hinh_anh: 'Sĩ quan QĐND Việt Nam trang nghiêm chào cờ Tổ quốc',
+    mo_ta: 'Tác phong chào cờ kiêu hãnh và trang nghiêm của sĩ quan Quân đội nhân dân Việt Nam bên lá cờ đỏ sao vàng năm cánh rực rỡ.',
+    tac_gia_ai: 'AI Studio Military Art Generator',
+    dac_trung: 'Quân phục lễ phục chính quy, ve áo quân hàm đỏ sao vàng, cờ đỏ sao vàng Việt Nam, ý chí kiên định phụng sự Tổ quốc',
+    aspectRatio: '3:4',
+    phu_hop: ['10 Lời thề danh dự', 'Lời thề quân nhân', 'Lòng trung thành với Tổ quốc & Đảng']
+  },
+  {
+    id: 'img-officer-research',
+    duong_dan: '/src/assets/images/si_quan_nghien_cuu_1790691387226.jpg',
+    ten_hinh_anh: 'Sĩ quan nghiên cứu tác chiến và lý luận trong đêm',
+    mo_ta: 'Sĩ quan say mê nghiên cứu giáo án chính trị và lời Bác dạy dưới ánh đèn bàn, phía sau là tượng Bác Hồ và bản đồ non sông Việt Nam.',
+    tac_gia_ai: 'AI Studio Military Art Generator',
+    dac_trung: 'Tinh thần tự học tự rèn, bàn làm việc sĩ quan, tượng Bác Hồ, bản đồ Tổ quốc Việt Nam liền một dải gồm hai quần đảo Hoàng Sa - Trường Sa',
+    aspectRatio: '16:9',
+    phu_hop: ['Công tác cán bộ', 'Tự học tự rèn', 'Phòng chống diễn biến hòa bình']
+  }
+];
+
+export const INFOGRAPHIC_INITIAL: InfographicItem[] = [
+  {
+    id: 'info-1',
+    tieu_de: 'LỜI BÁC DẠY: TRUNG VỚI ĐẢNG - HIẾU VỚI DÂN',
+    tieu_de_phu: 'Giá trị cốt lõi và sứ mệnh vẻ vang của Quân đội Nhân dân Việt Nam',
+    chuyen_de_id: 'cd-1',
+    loai_nguon: 'loi_bac_day',
+    trich_dan_bac_ho: {
+      cau_noi: 'Quân đội ta trung với Đảng, hiếu với dân, sẵn sàng chiến đấu hy sinh vì độc lập, tự do của Tổ quốc, vì chủ nghĩa xã hội. Nhiệm vụ nào cũng hoàn thành, khó khăn nào cũng vượt qua, kẻ thù nào cũng đánh thắng.',
+      ngay_thang: '22/12/1964',
+      hoan_canh: 'Diễn văn Chủ tịch Hồ Chí Minh tại buổi chiêu đãi mừng 20 năm thành lập QĐND Việt Nam',
+      y_nghia: 'Lời khen ngợi và đúc kết bản chất truyền thống anh hùng của Quân đội ta, là kim chỉ nam cho mọi thế hệ cán bộ, chiến sĩ noi theo.'
+    },
+    khau_hieu_hanh_dong: 'QUYẾT TÂM HOÀN THÀNH XUẤT SẮC MỌI NHIỆM VỤ ĐƯỢC GIAO!',
+    cac_diem_chinh: [
+      {
+        id: 'p-1',
+        order: 1,
+        title: 'Tuyệt đối Trung thành với Đảng',
+        desc: 'Kiên định mục tiêu độc lập dân tộc gắn liền với chủ nghĩa xã hội; đặt sự lãnh đạo tuyệt đối, trực tiếp về mọi mặt của Đảng lên hàng đầu.',
+        badge: 'BẢN LĨNH CHÍNH TRỊ'
+      },
+      {
+        id: 'p-2',
+        order: 2,
+        title: 'Hết lòng Phụng sự Nhân dân',
+        desc: 'Quân với dân như cá với nước; luôn kính trọng, gắn bó máu thịt, bảo vệ tính mạng và tài sản của nhân dân trong mọi hoàn cảnh.',
+        badge: 'GẮN BÓ MÁU THỊT'
+      },
+      {
+        id: 'p-3',
+        order: 3,
+        title: 'Khó khăn nào cũng vượt qua',
+        desc: 'Không sờn lòng trước gian lao thao trường hay hiểm nguy chiến trận; rèn luyện ý chí thép của người chiến sĩ cách mạng.',
+        badge: 'Ý CHÍ TIẾN CÔNG'
+      },
+      {
+        id: 'p-4',
+        order: 4,
+        title: 'Kẻ thù nào cũng đánh thắng',
+        desc: 'Làm chủ vũ khí trang bị hiện đại, thuần thục chiến thuật, sẵn sàng đánh thắng mọi hình thái chiến tranh xâm lược.',
+        badge: 'SẴN SÀNG CHIẾN ĐẤU'
+      }
+    ],
+    phuong_cham_hanh_dong: [
+      'Chấp hành nghiêm 10 Lời thề danh dự và 12 Điều kỷ luật quân nhân',
+      'Đoàn kết nội bộ vững chắc, thương yêu đồng chí đồng đội như ruột thịt',
+      'Chủ động tự học, rèn luyện thể lực và trình độ kỹ chiến thuật'
+    ],
+    chi_tieu_thi_dua: '100% quân số đạt yêu cầu kiểm tra nhận thức; phân đội vững mạnh toàn diện "Mẫu mực, tiêu biểu"',
+    loi_the_danh_du: 'Hy sinh tất cả vì Tổ quốc Việt Nam, vì chủ nghĩa xã hội. Xin thề!',
+    hinh_anh_ai: {
+      id: 'img-officer-salute',
+      duong_dan: '/src/assets/images/si_quan_chao_co_1790691373461.jpg',
+      ten_hinh_anh: 'Sĩ quan QĐND Việt Nam trang nghiêm chào cờ Tổ quốc',
+      mo_ta: 'Tác phong chào cờ kiêu hãnh của sĩ quan bên lá cờ đỏ sao vàng năm cánh',
+      tac_gia_ai: 'AI Studio Military Art Generator',
+      dac_trung: 'Quân phục lễ phục chính quy, ve áo quân hàm đỏ sao vàng, cờ Tổ quốc Việt Nam rực rỡ'
+    },
+    don_vi_ap_dung: 'Toàn quân · Đơn vị cơ sở',
+    ngay_bien_tap: '2026-09-29',
+    nguoi_bien_tap: 'Trợ lý Tuyên huấn',
+    cap_bac_nguoi_bien_tap: 'Thiếu tá',
+    mau_sac: 'do_vang',
+    bo_cuc: 'ap_phich_co_dong',
+    so_luot_xem: 520
+  },
+  {
+    id: 'info-2',
+    tieu_de: 'PHÁT HUY PHẨM CHẤT BỘ ĐỘI CỤ HỒ THỜI KỲ MỚI',
+    tieu_de_phu: 'Kiên quyết đẩy lùi chủ nghĩa cá nhân theo Kết luận số 21 và Nghị quyết 847',
+    chuyen_de_id: 'cd-1',
+    loai_nguon: 'chuyen_de',
+    trich_dan_bac_ho: {
+      cau_noi: 'Người cách mạng phải có đạo đức cách mạng làm nền tảng, mới hoàn thành được nhiệm vụ cách mạng vẻ vang.',
+      ngay_thang: '1958',
+      hoan_canh: 'Tác phẩm Đạo đức cách mạng của Chủ tịch Hồ Chí Minh',
+      y_nghia: 'Đạo đức cách mạng không phải tự trên trời rơi xuống, mà phải do đấu tranh, rèn luyện bền bỉ hàng ngày mà phát triển và củng cố.'
+    },
+    khau_hieu_hanh_dong: 'RÈN ĐỨC LUYỆN TÀI - XỨNG DANH BỘ ĐỘI CỤ HỒ!',
+    cac_diem_chinh: [
+      {
+        id: 'p-201',
+        order: 1,
+        title: 'Bản lĩnh vững vàng, động cơ trong sáng',
+        desc: 'Tuyệt đối tin tưởng vào sự lãnh đạo của Đảng; không dao động trước các luận điệu xuyên tạc và cám dỗ vật chất.',
+        badge: 'TIÊU CHUẨN 1'
+      },
+      {
+        id: 'p-202',
+        order: 2,
+        title: 'Cần kiệm liêm chính, chí công vô tư',
+        desc: 'Nêu cao tinh thần trách nhiệm, nói đi đôi với làm; kiên quyết chống tham ô, lãng phí và thói quan liêu quân phiệt.',
+        badge: 'TIÊU CHUẨN 2'
+      },
+      {
+        id: 'p-203',
+        order: 3,
+        title: 'Kỷ luật tự giác, nghiêm minh',
+        desc: 'Gương mẫu chấp hành điều lệnh, chế độ nền nếp ngày tuần; giữ gìn tác phong quân nhân chính quy chuẩn mực.',
+        badge: 'TIÊU CHUẨN 3'
+      },
+      {
+        id: 'p-204',
+        order: 4,
+        title: 'Tình đồng chí đồng đội keo sơn',
+        desc: 'Cùng chung chiến hào, thương yêu giúp đỡ nhau tiến bộ; không chia rẽ bè cánh, thành kiến hẹp hòi.',
+        badge: 'TIÊU CHUẨN 4'
+      }
+    ],
+    phuong_cham_hanh_dong: [
+      'Tự soi, tự sửa khuyết điểm hàng ngày trong từng việc nhỏ',
+      'Cán bộ làm gương trước chiến sĩ; cấp trên làm gương trước cấp dưới',
+      'Đề cao dân chủ gắn liền với kỷ luật quân sự nghiêm minh'
+    ],
+    chi_tieu_thi_dua: 'Đơn vị không có quân nhân vi phạm kỷ luật thông thường trên 0.2%, không có vi phạm kỷ luật nghiêm trọng',
+    loi_the_danh_du: 'Tuyệt đối phục tùng mệnh lệnh cấp trên; khi nhận bất cứ nhiệm vụ gì đều tận tâm tận lực. Xin thề!',
+    hinh_anh_ai: {
+      id: 'img-officer-lecture',
+      duong_dan: '/src/assets/images/si_quan_qdnd_giang_bai_1790691347866.jpg',
+      ten_hinh_anh: 'Sĩ quan QĐND Việt Nam giảng bài chính trị',
+      mo_ta: 'Sĩ quan quân đội đứng trên bục giảng truyền lửa tư tưởng chính trị',
+      tac_gia_ai: 'AI Studio Military Art Generator',
+      dac_trung: 'Quân hàm cấp hiệu đỏ sao vàng, quân phục xanh ô-liu QĐND Việt Nam, sổ tay chính trị'
+    },
+    don_vi_ap_dung: 'Toàn quân · Đơn vị cơ sở',
+    ngay_bien_tap: '2026-09-29',
+    nguoi_bien_tap: 'Ban Tuyên huấn',
+    cap_bac_nguoi_bien_tap: 'Đại úy',
+    mau_sac: 'xanh_quan_doi',
+    bo_cuc: 'infographic_hien_dai',
+    so_luot_xem: 410
+  },
+  {
+    id: 'info-3',
+    tieu_de: 'KỶ LUẬT LÀ SỨC MẠNH CỦA QUÂN ĐỘI',
+    tieu_de_phu: 'Xây dựng đơn vị chính quy, rèn luyện 10 Lời thề và 12 Điều kỷ luật',
+    chuyen_de_id: 'cd-2',
+    loai_nguon: 'loi_bac_day',
+    trich_dan_bac_ho: {
+      cau_noi: 'Bộ đội không có kỷ luật thì như người không có gân, không làm được việc gì cả.',
+      ngay_thang: '1948',
+      hoan_canh: 'Huấn thị của Bác tại Hội nghị rèn luyện cán bộ quân sự',
+      y_nghia: 'Kỷ luật tự giác, nghiêm minh là cội nguồn tạo nên sức mạnh vô song của Quân đội nhân dân Việt Nam trong chiến tranh giải phóng và bảo vệ Tổ quốc.'
+    },
+    khau_hieu_hanh_dong: 'KỶ LUẬT SẮT - NỀN NẾP CHÍNH QUY - THAO TRƯỜNG ĐỔ MỒ HÔI, CHIẾN TRƯỜNG BỚT ĐỔ MÁU!',
+    cac_diem_chinh: [
+      {
+        id: 'p-301',
+        order: 1,
+        title: 'Chấp hành nghiêm 11 chế độ trong ngày',
+        desc: 'Đúng giờ giấc, đúng lễ tiết tác phong; duy trì nghiêm chế độ điểm danh điểm quân số và vệ sinh nội vụ.',
+        badge: 'CHẾ ĐỘ TRONG NGÀY'
+      },
+      {
+        id: 'p-302',
+        order: 2,
+        title: 'Tuyệt đối an toàn trong huấn luyện & tham gia giao thông',
+        desc: 'Tuân thủ quy tắc bảo đảm an toàn vũ khí, khí tài, đạn dược; không sử dụng rượu bia khi điều khiển phương tiện.',
+        badge: 'AN TOÀN TUYỆT ĐỐI'
+      },
+      {
+        id: 'p-303',
+        order: 3,
+        title: '12 Điều kỷ luật khi tiếp xúc với nhân dân',
+        desc: 'Không lấy cái kim sợi chỉ của dân; mua bán công bằng, nói năng lễ độ, giúp đỡ dân lúc khó khăn hoạn nạn.',
+        badge: 'DÂN VẬN KHÉO'
+      }
+    ],
+    phuong_cham_hanh_dong: [
+      'Nói đi đôi với làm, cấp trên nêu gương cho cấp dưới',
+      'Duy trì kỷ luật từ việc nhỏ nhất: gấp chăn màn vuông góc, giày dép ngay ngắn',
+      'Kịp thời nhắc nhở, uốn nắn lệch lạc trong nội bộ'
+    ],
+    chi_tieu_thi_dua: 'Đơn vị đạt danh hiệu Vững mạnh toàn diện "Mẫu mực, tiêu biểu"',
+    loi_the_danh_du: 'Triệt để chấp hành điều lệnh, điều lệ, rèn luyện tính tổ chức, tính kỷ luật. Xin thề!',
+    hinh_anh_ai: {
+      id: 'img-officer-troops',
+      duong_dan: '/src/assets/images/si_quan_va_chien_si_1790691360387.jpg',
+      ten_hinh_anh: 'Sĩ quan cùng chiến sĩ học tập lời Bác Hồ dạy',
+      mo_ta: 'Sĩ quan chính trị hướng dẫn chiến sĩ trẻ thảo luận lời Bác dạy dưới cờ Tổ quốc',
+      tac_gia_ai: 'AI Studio Military Art Generator',
+      dac_trung: 'Quân phục xanh dã chiến, mũ cối, cờ đỏ sao vàng Việt Nam, tình đồng chí gắn bó'
+    },
+    don_vi_ap_dung: 'Toàn quân · Đơn vị cơ sở',
+    ngay_bien_tap: '2026-09-29',
+    nguoi_bien_tap: 'Trợ lý Tuyên huấn',
+    cap_bac_nguoi_bien_tap: 'Thiếu tá',
+    mau_sac: 'do_vang',
+    bo_cuc: 'ap_phich_co_dong',
+    so_luot_xem: 380
+  },
+  {
+    id: 'info-4',
+    tieu_de: 'TỰ HỌC TỰ RÈN - LÀM CHỦ VŨ KHÍ TRANG BỊ HIỆN ĐẠI',
+    tieu_de_phu: 'Xây dựng Quân đội nhân dân Việt Nam cách mạng, chính quy, tinh nhuệ, hiện đại',
+    chuyen_de_id: 'cd-4',
+    loai_nguon: 'chuyen_de',
+    trich_dan_bac_ho: {
+      cau_noi: 'Học hỏi là một việc phải tiếp tục suốt đời... Không ai có thể tự cho mình đã biết đủ rồi, biết hết rồi.',
+      ngay_thang: '1961',
+      hoan_canh: 'Bài nói chuyện tại Hội nghị cán bộ quản lý học tập',
+      y_nghia: 'Lời dạy nhắc nhở mỗi cán bộ, chiến sĩ không ngừng nâng cao trình độ khoa học kỹ thuật quân sự, làm chủ vũ khí công nghệ cao bảo vệ vững chắc vùng trời, vùng biển Tổ quốc.'
+    },
+    khau_hieu_hanh_dong: 'GIỎI CHÍNH TRỊ - TINH QUÂN SỰ - LÀM CHỦ CÔNG NGHỆ QUỐC PHÒNG!',
+    cac_diem_chinh: [
+      {
+        id: 'p-401',
+        order: 1,
+        title: 'Nghiên cứu sâu sắc lý luận chính trị',
+        desc: 'Vững vàng trước mọi tình huống, nhận diện và đập tan các luận điệu chiến tranh tâm lý của kẻ thù.',
+        badge: 'LÝ LUẬN VỮNG'
+      },
+      {
+        id: 'p-402',
+        order: 2,
+        title: 'Làm chủ khí tài và công nghệ mới',
+        desc: 'Huấn luyện thuần thục vũ khí trang bị từ thô sơ đến hiện đại; bảo quản giữ tốt dùng bền an toàn tiết kiệm.',
+        badge: 'KỸ THUẬT TINH'
+      },
+      {
+        id: 'p-403',
+        order: 3,
+        title: 'Xây dựng phương pháp tác phong khoa học',
+        desc: 'Làm việc có kế hoạch, tỉ mỉ, chu đáo; rèn luyện tư duy tác chiến linh hoạt sáng tạo phù hợp thực tế Việt Nam.',
+        badge: 'TÁC PHONG CHUẨN'
+      }
+    ],
+    phuong_cham_hanh_dong: [
+      'Tận dụng thời gian tự học ngoài giờ huấn luyện',
+      'Đọc sách báo chính trị, trao đổi kinh nghiệm trong tổ ba người',
+      'Áp dụng chuyển đổi số và công nghệ thông tin vào công tác Đảng, công tác chính trị'
+    ],
+    chi_tieu_thi_dua: '100% cán bộ huấn luyện được theo phân cấp; kiểm tra kỹ thuật đạt giỏi từ 80% trở lên',
+    loi_the_danh_du: 'Ra sức học tập nâng cao trình độ chính trị, quân sự, văn hóa, khoa học kỹ thuật. Xin thề!',
+    hinh_anh_ai: {
+      id: 'img-officer-research',
+      duong_dan: '/src/assets/images/si_quan_nghien_cuu_1790691387226.jpg',
+      ten_hinh_anh: 'Sĩ quan nghiên cứu tác chiến và lý luận trong đêm',
+      mo_ta: 'Sĩ quan say mê nghiên cứu giáo án chính trị dưới tượng Bác Hồ và bản đồ non sông',
+      tac_gia_ai: 'AI Studio Military Art Generator',
+      dac_trung: 'Sĩ quan QĐND Việt Nam, tượng Bác Hồ, bản đồ Việt Nam, đèn bàn nghiên cứu'
+    },
+    don_vi_ap_dung: 'Toàn quân · Đơn vị cơ sở',
+    ngay_bien_tap: '2026-09-29',
+    nguoi_bien_tap: 'Ban Tuyên huấn',
+    cap_bac_nguoi_bien_tap: 'Trung tá',
+    mau_sac: 'do_sam',
+    bo_cuc: 'so_tay_bo_tui',
+    so_luot_xem: 290
+  }
+];
+
